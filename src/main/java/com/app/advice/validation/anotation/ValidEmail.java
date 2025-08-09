@@ -1,20 +1,18 @@
 package com.app.advice.validation.anotation;
 
-import com.app.advice.validation.validator.ValidNameValidator;
-import com.app.advice.validation.validator.ValidPasswordValidator;
+import com.app.advice.validation.validator.ValidEmailValidator;
 import jakarta.validation.Constraint;
 import jakarta.validation.Payload;
 
 import java.lang.annotation.*;
 
-
 @Documented
-@Constraint(validatedBy = ValidPasswordValidator.class)
+@Constraint(validatedBy = ValidEmailValidator.class)
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.FIELD, ElementType.METHOD})
-public @interface ValidPassword {
+public @interface ValidEmail {
 
-    String message() default "{custom.validation.message}";
+    String message() default "El email no tiene un formato válido";
 
     Class<?>[] groups() default {};
     Class<? extends Payload>[] payload() default {};

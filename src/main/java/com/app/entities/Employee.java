@@ -22,10 +22,10 @@ public class Employee {
     @Column(name = "last_name")
     private String lastName;
     private String email;
-    private Long phone;
+    private String password;
+    private String phone;
     private byte age;
     private double height;
-
     private boolean married;
 
     @Column(name = "date_of_birth")

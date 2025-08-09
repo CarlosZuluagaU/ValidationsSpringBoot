@@ -20,6 +20,7 @@ public class EmployeeService {
                 .name(employeeDTO.getName())
                 .lastName(employeeDTO.getLastName())
                 .email(employeeDTO.getEmail())
+                .password(employeeDTO.getPassword())
                 .age(employeeDTO.getAge())
                 .phone(employeeDTO.getPhone())
                 .height(employeeDTO.getHeight())

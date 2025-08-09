@@ -1,5 +1,9 @@
 package com.app.controller.dto;
 
+import com.app.advice.validation.anotation.ValidName;
+import com.app.advice.validation.anotation.ValidNumber;
+import com.app.advice.validation.anotation.ValidPassword;
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -13,14 +17,19 @@ import java.time.LocalDate;
 @NoArgsConstructor
 public class EmployeeDTO {
 
-    @NotNull(message = "El nombre debe ser obligatorio")
+    @ValidName
     private String name;
-    @NotNull
+    @ValidName
     private String lastName;
     @NotNull
+    @Email
     @NotBlank(message = "El nombre es obligatorio y no puede estar vacío.")
     private String email;
-    private Long phone;
+    @ValidPassword
+    private String password;
+
+    @ValidNumber
+    private String phone;
     private byte age;
     private double height;
     private boolean married;

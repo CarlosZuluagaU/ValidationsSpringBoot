@@ -1,2 +1,21 @@
-package com.app.advice.validation.anotation;public class ValidPassword {
+package com.app.advice.validation.anotation;
+
+import com.app.advice.validation.validator.ValidNameValidator;
+import com.app.advice.validation.validator.ValidPasswordValidator;
+import jakarta.validation.Constraint;
+import jakarta.validation.Payload;
+
+import java.lang.annotation.*;
+
+
+@Documented
+@Constraint(validatedBy = ValidPasswordValidator.class)
+@Retention(RetentionPolicy.RUNTIME)
+@Target({ElementType.FIELD, ElementType.METHOD})
+public @interface ValidPassword {
+
+    String message() default "La contraseña no cumple con los requisitos mínimos, revisa si comienza con mayúscula, tiene más de tres caracteres, y tiene un caracter especial";
+
+    Class<?>[] groups() default {};
+    Class<? extends Payload>[] payload() default {};
 }
